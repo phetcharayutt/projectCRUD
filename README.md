@@ -1,4 +1,5 @@
-# THISproject 
+# Docker compose is cash I'm so sorry
+# Thisproject 
 
 # Crate database 
 
@@ -27,6 +28,3 @@ CREATE TABLE `user` (
 `npm install`
 
 `npm start`
-
-
-# Docker compose is cash I'm so sorry
