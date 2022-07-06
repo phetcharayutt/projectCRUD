@@ -1,0 +1,36 @@
+version: "3"
+services:
+  react-app:
+    image: react-app
+    restart: always
+    ports: 
+      - "3000:3000"
+    networks:
+      - crud-app
+  api-server:
+    image: api-server
+    restart: always
+    ports:
+      - "3333:3333"
+    networks:
+      - crud-app
+    depends_on:
+        - mydb
+  mydb:
+    environment:
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=root
+    image: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - crud-app
+    volumes:
+      - mydb-data:/var/lib/mysql
+networks:
+  crud-app:
+    driver: bridge
+volumes:
+  mydb-data:
+    driver: local        
+   
